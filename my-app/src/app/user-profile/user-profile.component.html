@@ -1,0 +1,18 @@
+<p>it works</p>
+
+<div *ngIf='user'>
+    <p>{{user.login}}</p>
+    <img [src] = "user.avatar_url" >
+    <a [href] = "user.html_url">Profile</a>
+    <p *ngIf="user.email">{{user.email}}</p>
+    <p>{{user.bio}}</p>
+    <p>{{user.blog}}</p>
+</div>
+
+<div *ngFor = 'let f of followers'>
+    <app-followers 
+    [follower] = "f" 
+    (updateEvent)="foo($event)"
+    >
+    </app-followers>
+</div>
