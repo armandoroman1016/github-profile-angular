@@ -1,18 +1,26 @@
-<p>it works</p>
-
-<div *ngIf='user'>
-    <p>{{user.login}}</p>
-    <img [src] = "user.avatar_url" >
-    <a [href] = "user.html_url">Profile</a>
-    <p *ngIf="user.email">{{user.email}}</p>
-    <p>{{user.bio}}</p>
-    <p>{{user.blog}}</p>
+<div *ngIf="user" [className]="'user card container'">
+  <p className="'login'">{{ user.login }}</p>
+  <img [src]="user.avatar_url" [className]="'avatar'" />
+  <a [href]="user.html_url">Profile</a>
+  <p *ngIf="user.email" [className]="'email'">{{ user.email }}</p>
+  <p [className]="'bio'">{{ user.bio }}</p>
+  <p [className]="'blog'">{{ user.blog }}</p>
+  <div [className]="'stats'">
+    <div [className]="'stat'">
+      <p>{{ user.followers }}</p>
+      <span>Followers</span>
+    </div>
+    <div [className]="'stat'">
+      <p>{{ user.following }}</p>
+      <span>Following</span>
+    </div>
+    <div [className]="'stat'">
+      <p>{{ user.public_repos }}</p>
+      <span>Repositories</span>
+    </div>
+  </div>
 </div>
 
-<div *ngFor = 'let f of followers'>
-    <app-followers 
-    [follower] = "f" 
-    (updateEvent)="foo($event)"
-    >
-    </app-followers>
+<div *ngFor="let f of followers">
+  <app-followers [follower]="f" (updateEvent)="foo($event)"> </app-followers>
 </div>

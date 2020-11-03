@@ -7,17 +7,15 @@ import { catchError, tap, map, retry } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class GithubService {
-
   updateUser(user: string) {
-    return this.http
-      .get<any>(`https://api.github.com/users/${user}`)
+    return this.http.get<any>(`https://api.github.com/users/${user}`);
   }
 
   /*
    Takes in a user url and returns an array of user objects 
   */
   updateFollowers(user: string) {
-    return this.http.get<any>(`https://api.github.com/users/${user}/followers`)
+    return this.http.get<any>(`https://api.github.com/users/${user}/followers`);
   }
 
   constructor(private http: HttpClient) {}
