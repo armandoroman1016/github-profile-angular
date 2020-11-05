@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from "@angular/common/http/testing"
 
 import { FollowersComponent } from './followers.component';
 
@@ -9,6 +10,9 @@ describe('FollowersComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [FollowersComponent],
+      imports:[
+        HttpClientTestingModule
+      ]
     }).compileComponents();
   });
 

@@ -1,10 +1,12 @@
+<p [className]="'hello'">{{hello}}</p>
 <div *ngIf="user" [className]="'user card container'">
-  <p className="'login'">{{ user.login }}</p>
+  <p className="'name'">{{ user.name }}</p>
+  <p className="login">@{{ user.login }}</p>
   <img [src]="user.avatar_url" [className]="'avatar'" />
   <a [href]="user.html_url">Profile</a>
   <p *ngIf="user.email" [className]="'email'">{{ user.email }}</p>
+  <a [className]="'blog'" [href]="user.blog">Blog</a>
   <p [className]="'bio'">{{ user.bio }}</p>
-  <p [className]="'blog'">{{ user.blog }}</p>
   <div [className]="'stats'">
     <div [className]="'stat'">
       <p>{{ user.followers }}</p>

@@ -11,11 +11,15 @@
     filter: drop-shadow(1px 1px 3px #e8e8e9)
   }
   .stats{
+    background: #E8EBED;
+    border-radius: 6px;
     display: flex;
     width: 90%;
     height: 100px;
     justify-content: space-around;
     align-items: center;
+    box-shadow: 2px 4px 7px #DBDADD;
+    border-top: 3px solid #4EB9FB;
     .stat{
       display: flex;
       flex-direction: column;
@@ -28,7 +32,7 @@
       }
       p{
         font-weight: bold;
-        font-size: 20px;
+        font-size: 24px;
       }
       span{
         font-size: 12px;
