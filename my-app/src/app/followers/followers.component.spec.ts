@@ -25,4 +25,8 @@ describe('FollowersComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display follower name', () => {
+
+  })
 });

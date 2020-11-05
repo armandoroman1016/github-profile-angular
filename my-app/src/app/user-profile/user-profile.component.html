@@ -1,6 +1,6 @@
 <div *ngIf="user" [className]="'user card container'">
-  <p className="'name'">{{ user.name }}</p>
-  <p className="login">@{{ user.login }}</p>
+  <p [className]="'name'">{{ user.name }}</p>
+  <p [className]="'login'">@{{ user.login }}</p>
   <img [src]="user.avatar_url" [className]="'avatar'" />
   <a [href]="user.html_url">Profile</a>
   <p *ngIf="user.email" [className]="'email'">{{ user.email }}</p>
@@ -8,11 +8,11 @@
   <p [className]="'bio'">{{ user.bio }}</p>
   <div [className]="'stats'">
     <div [className]="'stat'">
-      <p>{{ user.followers }}</p>
+      <p [className] = "'follower_count'">{{ user.followers }}</p>
       <span>Followers</span>
     </div>
     <div [className]="'stat'">
-      <p>{{ user.following }}</p>
+      <p [className]="'following_count'">{{ user.following }}</p>
       <span>Following</span>
     </div>
     <div [className]="'stat'">

@@ -39,7 +39,7 @@ const testUser = {
   company: null,
   blog: 'armandoroman.dev',
   location: 'Turlock, CA',
-  email: null,
+  email: "test@test.com",
   hireable: null,
   bio: 'Web Developer.\r\nStudent at Lambda School.\r\nForever Forward.',
   twitter_username: null,
@@ -131,11 +131,36 @@ describe('UserProfileComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('will render user data after ngOnInit()', async () => {
+  it('will render user data after ngOnInit()', () => {
     expect(userDiv).toBeFalsy()
     fixture.detectChanges() // ngOnInit
     userDiv = fixture.nativeElement.querySelector('.user');
     expect(userDiv).toBeTruthy()
   });
+  it("will show the users name", () => {
+    fixture.detectChanges()
+    const name: HTMLElement = fixture.nativeElement.querySelector('.name')
+    expect(name.innerHTML).toEqual(testUser.name)
+  })
+  it("will show the users follower count", () => {
+    fixture.detectChanges()
+    const followers: HTMLElement = fixture.nativeElement.querySelector('.follower_count')
+    expect(followers.innerHTML).toEqual(testUser.followers.toString())
+  })
+  it("will show the users following count", () => {
+    fixture.detectChanges()
+    const following: HTMLElement = fixture.nativeElement.querySelector('.following_count')
+    expect(following.innerHTML).toEqual(testUser.following.toString())
+  })
+  it("will not display element that contains the email if one is missing", () => {
+    fixture.detectChanges()
+    let email: HTMLElement = fixture.nativeElement.querySelector('.email')
+    expect(email.innerHTML).toEqual(testUser.email)
+
+    component.user.email = null
+    fixture.detectChanges()
+    email = fixture.nativeElement.querySelector('.email')
+    expect(email).toBeFalsy()
+  })
+
 });
