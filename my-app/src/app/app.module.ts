@@ -27,4 +27,5 @@ import { GithubService } from './github.service';
   providers: [GithubService],
   bootstrap: [AppComponent],
 })
+
 export class AppModule {}

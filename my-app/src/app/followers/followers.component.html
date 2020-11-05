@@ -1,5 +1,3 @@
-<p>followers works!</p>
-
 <div *ngIf='follower' (click)="updateUser(follower.login)">
     <p>{{follower.login}}</p>
     <img [src] = 'follower.avatar_url'>

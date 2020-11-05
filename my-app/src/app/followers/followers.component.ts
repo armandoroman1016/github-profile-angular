@@ -1,15 +1,16 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, NgModule } from '@angular/core';
 import { GithubService } from '../github.service';
 import { Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-followers',
   templateUrl: './followers.component.html',
   styleUrls: ['./followers.component.scss'],
 })
+
 export class FollowersComponent implements OnInit {
   @Input() follower;
-  d = 'hello';
   @Output() updateEvent: EventEmitter<any> = new EventEmitter<string>();
 
   constructor(private gitHubService: GithubService) {}

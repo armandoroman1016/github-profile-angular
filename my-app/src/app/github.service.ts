@@ -14,7 +14,7 @@ export class GithubService {
    Takes in a user url and returns an array of user objects
   */
   updateFollowers(user: string) {
-    return this.http.get(`https://api.github.com/users/${user}/followers`).toPromise();
+    return this.http.get(`https://api.github.com/users/${user}/followers`)
   }
 
   constructor(private http: HttpClient) {}

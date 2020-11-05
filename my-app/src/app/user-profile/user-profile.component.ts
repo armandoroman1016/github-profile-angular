@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { GithubService } from '../github.service';
+
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss'],
-
 })
 export class UserProfileComponent implements OnInit {
   constructor(private githubService: GithubService) {}
 
   user;
   followers;
-  hello = "jeest"
+
   ngOnInit(): void {
     this.githubService
       .updateUser('benawad')
@@ -21,25 +21,28 @@ export class UserProfileComponent implements OnInit {
         this.user = userInfo;
       });
 
-    // this.gitHubService
-    //   .updateFollowers('benawad')
-    //   .then((data) => (this.followers = data));
+    this.githubService
+      .updateFollowers('benawad')
+      .toPromise()
+      .then((data) => (this.followers = data));
   }
 
-  // foo(user) {
-  //   this.updateUser(user);
-  //   this.updateFollowers(user);
-  // }
+  foo(user) {
+    this.updateUser(user);
+    this.updateFollowers(user);
+  }
 
-  // updateUser(user: string) {
-  //   this.gitHubService
-  //     .updateUser(user)
-  //     .then((u) => (this.user = u));
-  // }
+  updateUser(user: string) {
+    this.githubService
+      .updateUser(user)
+      .toPromise()
+      .then((u) => (this.user = u));
+  }
 
-  // updateFollowers(user) {
-  //   this.gitHubService
-  //     .updateFollowers(user)
-  //     .then((data) => (this.followers = data));
-  // }
+  updateFollowers(user) {
+    this.githubService
+      .updateFollowers(user)
+      .toPromise()
+      .then((data) => (this.followers = data));
+  }
 }
