@@ -1,5 +1,5 @@
-<div *ngIf='follower' (click)="updateUser(follower.login)">
-    <p>{{follower.login}}</p>
+<div *ngIf='follower' (click)="updateUser(follower.login)" [className]="'follower'">
+    <p [className]="'login'">{{follower.login}}</p>
     <img [src] = 'follower.avatar_url'>
     <p>{{follower | json}}</p>
 </div>

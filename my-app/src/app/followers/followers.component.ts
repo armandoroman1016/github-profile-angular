@@ -13,7 +13,7 @@ export class FollowersComponent implements OnInit {
   @Input() follower;
   @Output() updateEvent: EventEmitter<any> = new EventEmitter<string>();
 
-  constructor(private gitHubService: GithubService) {}
+  constructor() {}
 
   updateUser(user: string) {
     this.updateEvent.emit(user);
