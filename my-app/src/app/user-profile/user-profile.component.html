@@ -24,10 +24,11 @@
   </div>
 </div>
 
+<app-search (userSearchEvent)="foo($event)"></app-search>
+
 <div [className]="'followers'">
   <div *ngFor="let f of followers">
     <app-followers [follower]="f" (updateEvent)="foo($event)"> </app-followers>
   </div>
 </div>
 
-<app-search></app-search>

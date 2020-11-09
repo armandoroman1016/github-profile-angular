@@ -28,6 +28,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   foo(user) {
+    // console.log("here", user)
     this.updateUser(user);
     this.updateFollowers(user);
   }
@@ -36,13 +37,15 @@ export class UserProfileComponent implements OnInit {
     this.githubService
       .updateUser(user)
       .toPromise()
-      .then((u) => (this.user = u));
+      .then((u) => (this.user = u))
+      .catch(e => console.log(e))
   }
 
   updateFollowers(user) {
     this.githubService
       .updateFollowers(user)
       .toPromise()
-      .then((data) => (this.followers = data));
+      .then((data) => (this.followers = data))
+      .catch(e => console.log(e))
   }
 }

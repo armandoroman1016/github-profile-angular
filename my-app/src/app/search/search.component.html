@@ -1,6 +1,5 @@
-<p>search works!</p>
-
-<form [formGroup] = "userForm" >
-  <input type = "text" formControlName="userName" (keydown)="handleInput()">
-
+<form [formGroup] = "userForm" (submit)="handleSubmit()">
+  <label for="'userName'">Search Users</label>
+  <input type = "text" formControlName="userName" [placeholder]="'Username...'">
+  <button (click) = "handleSubmit()">GO</button>
 </form>
