@@ -10,6 +10,8 @@ import { FollowersComponent } from './followers/followers.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 import { GithubService } from './github.service';
+
+import { ReactiveFormsModule } from '@angular/forms'
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +23,7 @@ import { GithubService } from './github.service';
   imports: [
     BrowserModule,
     // AppRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([{ path: '', component: UserProfileComponent }]),
   ],

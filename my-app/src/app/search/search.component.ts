@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms'
 
 @Component({
   selector: 'app-search',
@@ -6,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-  constructor() {}
+  userForm
 
+  constructor(private formBuilder: FormBuilder) {
+    this.userForm = this.formBuilder.group({
+      userName: ""
+    })
+  }
+
+  // onSubmit
+  handleInput(){
+    console.log(this.userForm.value)
+  }
   ngOnInit(): void {}
 }

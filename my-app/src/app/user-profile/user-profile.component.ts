@@ -15,14 +15,14 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.githubService
-      .updateUser('benawad')
+      .updateUser('armandoroman1016')
       .toPromise()
       .then((userInfo) => {
         this.user = userInfo;
       });
 
     this.githubService
-      .updateFollowers('benawad')
+      .updateFollowers('armandoroman1016')
       .toPromise()
       .then((data) => (this.followers = data));
   }
