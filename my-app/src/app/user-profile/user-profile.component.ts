@@ -27,8 +27,8 @@ export class UserProfileComponent implements OnInit {
       .then((data) => (this.followers = data));
   }
 
-  foo(user) {
-    // console.log("here", user)
+  foo(user: string) {
+    console.log(user)
     this.updateUser(user);
     this.updateFollowers(user);
   }

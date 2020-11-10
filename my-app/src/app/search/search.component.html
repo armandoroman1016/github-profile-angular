@@ -1,5 +1,10 @@
-<form [formGroup] = "userForm" (submit)="handleSubmit()">
-  <label for="'userName'">Search Users</label>
-  <input type = "text" formControlName="userName" [placeholder]="'Username...'">
-  <button (click) = "handleSubmit()">GO</button>
+<form [formGroup] = "userForm" class="userForm">
+  <mat-form-field>
+    <mat-label>Search Users</mat-label>
+    <input type = "text" matInput formControlName="userName" placeholder="Username..." >
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click) = "handleSubmit()">GO</button>
 </form>
+
+
+

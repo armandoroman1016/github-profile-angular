@@ -5,6 +5,7 @@ import { FormBuilder } from '@angular/forms'
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
+
 })
 export class SearchComponent implements OnInit {
   userForm
@@ -17,6 +18,7 @@ export class SearchComponent implements OnInit {
   }
 
   handleSubmit(){
+
     this.userSearchEvent.emit(this.userForm.value.userName)
     this.userForm.reset()
   }
