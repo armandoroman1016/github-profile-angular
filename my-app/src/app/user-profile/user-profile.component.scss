@@ -45,10 +45,16 @@
 }
 
 .followers{
-  width: 80%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 0 auto;
-  margin-top: 125px;
+  // width: 80%;
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: space-around;
+  // margin: 0 auto;
+  // margin-top: 125px;
+  .follower_header{
+    margin: 20px auto 0 auto;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bolder;
+  }
 }

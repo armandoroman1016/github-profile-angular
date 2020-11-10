@@ -1,4 +1,8 @@
-<div *ngIf='follower' (click)="updateUser(follower.login)" [className]="'follower'">
-    <p [className]="'login'">{{follower.login}}</p>
-    <img [src] = 'follower.avatar_url'>
-</div>
+<mat-card (click)="updateUser(follower.login)" class="follower_card">
+  <mat-card-header *ngIf='follower'>
+    <mat-card-title class='login'>{{follower.login}}</mat-card-title>
+  </mat-card-header>
+    <div>
+      <img *ngIf='follower.avatar_url' mat-card-lg-image [src] = 'follower.avatar_url'>
+    </div>
+  </mat-card>

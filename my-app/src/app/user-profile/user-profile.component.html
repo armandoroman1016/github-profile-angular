@@ -26,9 +26,11 @@
 
 <app-search (userSearchEvent)="foo($event)"></app-search>
 
-<div [className]="'followers'">
-  <div *ngFor="let f of followers">
+
+<mat-grid-list *ngIf="user && !loading" cols="5" rowHeight="1:1" class='followers'>
+  <div class="follower_header">{{user.name}}'s Followers</div>
+  <mat-grid-tile *ngFor="let f of followers">
     <app-followers [follower]="f" (updateEvent)="foo($event)"> </app-followers>
-  </div>
-</div>
+  </mat-grid-tile>
+</mat-grid-list>
 

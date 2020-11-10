@@ -12,24 +12,36 @@ export class UserProfileComponent implements OnInit {
 
   user;
   followers;
+  loading = false
 
   ngOnInit(): void {
+
+    this.loading = true
+
     this.githubService
       .updateUser('armandoroman1016')
       .toPromise()
       .then((userInfo) => {
         this.user = userInfo;
-      });
+        this.loading = false
+      })
+      .catch(err => console.log(err))
 
     this.githubService
       .updateFollowers('armandoroman1016')
       .toPromise()
-      .then((data) => (this.followers = data));
+      .then((data) => {
+        this.followers = data
+        this.loading = false
+      })
+      .catch(e => console.log(e));
   }
 
   foo(user: string) {
-    console.log(user)
+    this.loading = true
     this.updateUser(user);
+
+    this.loading = true
     this.updateFollowers(user);
   }
 
@@ -37,7 +49,10 @@ export class UserProfileComponent implements OnInit {
     this.githubService
       .updateUser(user)
       .toPromise()
-      .then((u) => (this.user = u))
+      .then((u) => {
+        this.user = u
+        this.loading = false
+      })
       .catch(e => console.log(e))
   }
 
@@ -45,7 +60,10 @@ export class UserProfileComponent implements OnInit {
     this.githubService
       .updateFollowers(user)
       .toPromise()
-      .then((data) => (this.followers = data))
+      .then((data) => {
+        this.followers = data
+        this.loading = false
+      })
       .catch(e => console.log(e))
   }
 }
