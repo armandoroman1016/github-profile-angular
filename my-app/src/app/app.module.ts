@@ -10,6 +10,16 @@ import { FollowersComponent } from './followers/followers.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 import { GithubService } from './github.service';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MatSliderModule } from "@angular/material/slider"
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,8 +31,16 @@ import { GithubService } from './github.service';
   imports: [
     BrowserModule,
     // AppRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([{ path: '', component: UserProfileComponent }]),
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatButtonModule,
+    MatInputModule,
+    MatCardModule,
+    MatGridListModule,
+    MatProgressSpinnerModule
   ],
   providers: [GithubService],
   bootstrap: [AppComponent],

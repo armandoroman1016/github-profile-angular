@@ -1,0 +1,15 @@
+.userForm{
+  // padding: 20px;
+  background: #303030;
+  // width: 100vw;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  mat-form-field{
+    margin-right: 50px;
+    input{
+      color: #fff
+    }
+  }
+}
