@@ -1,36 +1,41 @@
 <div *ngIf="user" [className]="'user card container'">
-  <p [className]="'name'">{{ user.name }}</p>
-  <img [src]="user.avatar_url" [className]="'avatar'" />
-  <p [className]="'login'">@{{ user.login }}</p>
-  <div>
-    <a [href]="user.html_url">Profile</a>
-    <a [className]="'blog'" [href]="user.blog">Blog</a>
+  <div class="left">
+    <p [className]="'name'">{{ user.name }}</p>
+    <p [className]="'login'">@{{ user.login }}</p>
+    <img [src]="user.avatar_url" [className]="'avatar'" />
   </div>
-  <p *ngIf="user.email" [className]="'email'">{{ user.email }}</p>
-  <p [className]="'bio'">{{ user.bio }}</p>
-  <div [className]="'stats'">
-    <div [className]="'stat'">
-      <p [className] = "'follower_count'">{{ user.followers }}</p>
-      <span>Followers</span>
-    </div>
-    <div [className]="'stat'">
-      <p [className]="'following_count'">{{ user.following }}</p>
-      <span>Following</span>
-    </div>
-    <div [className]="'stat'">
-      <p>{{ user.public_repos }}</p>
-      <span>Repositories</span>
+  <div class="right">
+    <a class="profile_link" [href]="user.html_url">Profile</a>
+    <a class="blog_link" [href]="user.blog">Blog</a>
+    <p *ngIf="user.email" [className]="'email'">{{ user.email }}</p>
+    <p [className]="'bio'">{{ user.bio }}</p>
+    <div [className]="'stats'">
+      <div [className]="'stat'">
+        <p [className]="'follower_count'">{{ user.followers }}</p>
+        <span>Followers</span>
+      </div>
+      <div [className]="'stat'">
+        <p [className]="'following_count'">{{ user.following }}</p>
+        <span>Following</span>
+      </div>
+      <div [className]="'stat'">
+        <p>{{ user.public_repos }}</p>
+        <span>Repositories</span>
+      </div>
     </div>
   </div>
 </div>
 
 <app-search (userSearchEvent)="foo($event)"></app-search>
 
-
-<mat-grid-list *ngIf="user && !loading" cols="5" rowHeight="1:1" class='followers'>
-  <div class="follower_header">{{user.name}}'s Followers</div>
+<mat-grid-list
+  *ngIf="user && !loading"
+  cols="5"
+  rowHeight="1:1"
+  class="followers"
+>
+  <div class="follower_header">{{ user.name }}'s Followers</div>
   <mat-grid-tile *ngFor="let f of followers">
     <app-followers [follower]="f" (updateEvent)="foo($event)"> </app-followers>
   </mat-grid-tile>
 </mat-grid-list>
-
